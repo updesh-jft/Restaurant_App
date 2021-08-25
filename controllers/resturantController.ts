@@ -1,10 +1,10 @@
-import resturantService from '../services/resturant';
-const Resturant = new resturantService();
+import restaurantService from '../services/restaurant';
+const restaurant = new restaurantService();
 
 const restro = {
- listResturant: (req: any, res: any) => {
+ listrestaurant: (req: any, res: any) => {
         try {
-            Resturant.getAllResturant().then((data: any) => {
+            restaurant.getAllrestaurant().then((data: any) => {
                 return res.status(200).send(data);
             });
         } catch (error) {
@@ -13,7 +13,7 @@ const restro = {
     },
 
 
- registerResturant: (req: any, res: any) => {
+ registerrestaurant: (req: any, res: any) => {
         try {
             const postData = req.body;
 
@@ -28,11 +28,11 @@ const restro = {
                 });
             } else {
                 const avatar = req.files.picture;
-                avatar.mv('./uploads/resturant/' + avatar.name);
-                const path = './uploads/resturant/' + avatar.name;
+                avatar.mv('./uploads/restaurant/' + avatar.name);
+                const path = './uploads/restaurant/' + avatar.name;
                 postData.picture = path;
                 if (path) {
-                    Resturant.createResturant(postData).then((data: any) => {
+                    restaurant.createrestaurant(postData).then((data: any) => {
                         return res.status(200).send(data);
                     });
                 } else {
@@ -50,20 +50,20 @@ const restro = {
 
     },
 
-updateResturant : (req : any, res : any) => {
+updaterestaurant : (req : any, res : any) => {
     try {
-        const resturantId =  req.param('_id');
+        const restaurantId =  req.param('_id');
         const postData = req.body;
-        if (!resturantId) {
-            return res.send('Please send resturant id in the params')
+        if (!restaurantId) {
+            return res.send('Please send restaurant id in the params')
         }
         if(req.files){
             const avatar = req.files.picture;
-            avatar.mv('./uploads/resturant/' + avatar.name);
-            const path = './uploads/resturant/' + avatar.name
+            avatar.mv('./uploads/restaurant/' + avatar.name);
+            const path = './uploads/restaurant/' + avatar.name
             postData.picture = path;
             if (path) {
-                Resturant.createResturant(postData).then((data: any) => {
+                restaurant.createrestaurant(postData).then((data: any) => {
                     return res.status(200).send(data)
                 })
             } else {
@@ -74,7 +74,7 @@ updateResturant : (req : any, res : any) => {
             }
 
         }
-        Resturant.resturantUpdate(postData, resturantId).then((data: any) => {
+        restaurant.restaurantUpdate(postData, restaurantId).then((data: any) => {
             return res.status(200).send(data)
         })
 
@@ -84,13 +84,13 @@ updateResturant : (req : any, res : any) => {
 
 },
 
-resturantProductsList : (req : any, res : any) => {
+restaurantProductsList : (req : any, res : any) => {
     try {
-        const resturantId = req.param('_id');
-        if (!resturantId) {
-            return res.send('Please send resturant id in the params')
+        const restaurantId = req.param('_id');
+        if (!restaurantId) {
+            return res.send('Please send restaurant id in the params')
         }
-        Resturant.resturantProductsList(resturantId).then((data: any) => {
+        restaurant.restaurantProductsList(restaurantId).then((data: any) => {
             return res.status(200).send(data)
         })
     } catch (error) {
@@ -99,12 +99,12 @@ resturantProductsList : (req : any, res : any) => {
 
 },
 
-createResturantProduct : (req : any, res : any) =>{
+createrestaurantProduct : (req : any, res : any) =>{
     try {
         const postData = req.body;
-        const resturantId = req.body.resturantId;
-        if (!resturantId) {
-            return res.send('Please send resturant id in the body')
+        const restaurantId = req.body.restaurantId;
+        if (!restaurantId) {
+            return res.send('Please send restaurant id in the body')
         }
         if (!postData.name || !postData.price || !postData.category) {
             return res.send('Fill all the details')
@@ -120,7 +120,7 @@ createResturantProduct : (req : any, res : any) =>{
             const path = './uploads/product/' + avatar.name
             postData.picture = path;
             if (path) {
-                Resturant.createResturantProduct(postData).then((data: any) => {
+                restaurant.createrestaurantProduct(postData).then((data: any) => {
                     return res.status(200).send(data)
                 })
             } else {
@@ -140,7 +140,7 @@ createResturantProduct : (req : any, res : any) =>{
 },
 
 
-changeResturantProduct : (req : any, res : any) => {
+changerestaurantProduct : (req : any, res : any) => {
     try {
         const productId = req.param('_id');
         const postData = req.body;
@@ -153,7 +153,7 @@ changeResturantProduct : (req : any, res : any) => {
             const path = './uploads/product/' + avatar.name
             postData.picture = path;
             if (path) {
-                Resturant.changeResturantProduct(postData, productId).then((data: any) => {
+                restaurant.changerestaurantProduct(postData, productId).then((data: any) => {
                     return res.status(200).send(data)
                 })
             } else {
@@ -164,7 +164,7 @@ changeResturantProduct : (req : any, res : any) => {
             }
 
         }
-        Resturant.changeResturantProduct(postData, productId).then((data: any) => {
+        restaurant.changerestaurantProduct(postData, productId).then((data: any) => {
             return res.status(200).send(data)
         })
     } catch (error) {
@@ -173,13 +173,13 @@ changeResturantProduct : (req : any, res : any) => {
 
 },
 
-deleteResturantProduct : (req : any, res : any) => {
+deleterestaurantProduct : (req : any, res : any) => {
     try {
         const productId = req.param('_id');
         if (!productId) {
             return res.send('Please send product id in the params')
         }
-        Resturant.deleteReturantProduct(productId).then((data: any) => {
+        restaurant.deleteReturantProduct(productId).then((data: any) => {
             return res.status(200).send(data)
         })
     } catch (error) {

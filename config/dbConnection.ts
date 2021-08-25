@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 const DB_CONFIG =  {
     host:'127.0.0.1',
     port:27017,
-    dbName:'resturant'
+    dbName:'restaurant'
 };
 
 const dbConnection =  {

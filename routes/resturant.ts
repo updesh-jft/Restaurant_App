@@ -1,17 +1,17 @@
 import express from  'express';
-import  resturantController from "../controllers/resturantController";
+import  restaurantController from "../controllers/restaurantController";
 
 const router = express.Router();
 
-router.get("/listResturant", resturantController.listResturant);
-router.post("/registerResturant", resturantController.registerResturant);
-router.put("/updateResturant", resturantController.updateResturant);
+router.get("/listrestaurant", restaurantController.listrestaurant);
+router.post("/registerrestaurant", restaurantController.registerrestaurant);
+router.put("/updaterestaurant", restaurantController.updaterestaurant);
 
 
-router.get("/resturantProductsList", resturantController.resturantProductsList);
-router.post("/createResturantProduct", resturantController.createResturantProduct);
-router.put("/changeResturantProduct", resturantController.changeResturantProduct);
-router.delete("/deleteResturantProduct", resturantController.deleteResturantProduct);
+router.get("/restaurantProductsList", restaurantController.restaurantProductsList);
+router.post("/createrestaurantProduct", restaurantController.createrestaurantProduct);
+router.put("/changerestaurantProduct", restaurantController.changerestaurantProduct);
+router.delete("/deleterestaurantProduct", restaurantController.deleterestaurantProduct);
 
 
 

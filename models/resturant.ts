@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const schema = mongoose.Schema;
 
-const resturant = new schema({
+const restaurant = new schema({
         picture : {
             type: String,
             required:true
@@ -24,4 +24,4 @@ const resturant = new schema({
 })
 
 
-export default  mongoose.model('resturant',resturant);
+export default  mongoose.model('restaurant',restaurant);

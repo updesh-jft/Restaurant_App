@@ -1,2 +1,2 @@
-# Resturant_App
-This is basically resturant app , made on express js/type script , mongo db.
+# restaurant_App
+This is basically restaurant app , made on express js/type script , mongo db.

@@ -1,11 +1,11 @@
-import resturant from '../models/resturant';
+import restaurant from '../models/restaurant';
 import product from '../models/product';
 
 
-class Resturant {
-    createResturant = (body: any) => {
+class restaurant {
+    createrestaurant = (body: any) => {
         return new Promise((resolve, reject) => {
-            new resturant(body).save((error: any, result: unknown) => {
+            new restaurant(body).save((error: any, result: unknown) => {
                 if (error) {
                     reject(error);
                 } else {
@@ -16,9 +16,9 @@ class Resturant {
 
     }
 
-    getAllResturant = () => {
+    getAllrestaurant = () => {
         return new Promise((resolve, reject) => {
-            resturant.find((error: any, result: unknown) => {
+            restaurant.find((error: any, result: unknown) => {
                 if (error) {
                     reject(error);
                 } else {
@@ -28,12 +28,12 @@ class Resturant {
         })
     }
 
-    resturantUpdate = (body: any, resturantId: any) => {
+    restaurantUpdate = (body: any, restaurantId: any) => {
         const query = {
-            _id: resturantId
+            _id: restaurantId
         }
         return new Promise(async (resolve, reject) => {
-            const data =await resturant.updateOne(query, body);
+            const data =await restaurant.updateOne(query, body);
             if(data){
                 resolve(data);
             }
@@ -43,7 +43,7 @@ class Resturant {
         })
     }
 
-    createResturantProduct = (body: any) => {
+    createrestaurantProduct = (body: any) => {
         return new Promise((resolve, reject) => {
             new product(body).save((error: any, result: unknown) => {
                 if (error) {
@@ -56,9 +56,9 @@ class Resturant {
 
     }
 
-    resturantProductsList = (id: any) => {
+    restaurantProductsList = (id: any) => {
         const query = {
-            resturantId: id
+            restaurantId: id
         }
         return new Promise((resolve, reject) => {
             product.find(query ,(error: any, result: any) => {
@@ -72,7 +72,7 @@ class Resturant {
     }
 
 
-    changeResturantProduct = (body: any, productId: any) => {
+    changerestaurantProduct = (body: any, productId: any) => {
         const query = {
             _id: productId
         }
@@ -104,4 +104,4 @@ class Resturant {
 
 }
 
-export default  Resturant;
+export default  restaurant;

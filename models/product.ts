@@ -19,9 +19,9 @@ const product = new schema({
             type : Array,
             required : true
         },
-        resturantId : {
+        restaurantId : {
             type : schema.Types.ObjectId,
-            ref : 'resturant'
+            ref : 'restaurant'
         }
 })
 

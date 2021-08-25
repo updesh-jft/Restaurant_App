@@ -1,5 +1,5 @@
 import express from  'express';
-import  Routes from "./routes/resturant.js";
+import  Routes from "./routes/restaurant.js";
 const app = express();
 import fileUpload from "express-fileupload";
 
